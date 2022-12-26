@@ -1,7 +1,7 @@
 ﻿<?php
 session_start();
 // koneksi ke database
-include '../koneksi.php';
+include 'koneksi.php';
 
 if (!isset($_SESSION['admin']))
 {
@@ -231,6 +231,10 @@ function menuActive($halaman)
                         {
                             include 'home.php';
                         }
+                        elseif ($_GET['halaman']=="hapuspembelian")
+                        {
+                            include 'hapuspembelian.php';
+                        }
                     }
                     else
                     {
@@ -255,7 +259,6 @@ function menuActive($halaman)
     <!-- DATA TABLE SCRIPTS -->
     <script src="assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-
 
     <script>
         $(document).ready(function () {

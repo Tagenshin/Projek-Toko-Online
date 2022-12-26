@@ -3,18 +3,18 @@ session_start();
 // mendapatkan id produk dari url
 $id_produk = $_GET['id'];
 
-include 'koneksi.php';
+include 'admin/koneksi.php';
 
 // ambil stok
 $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
 $detail = $ambil->fetch_assoc();
 
 if ($detail["stok_produk"]==0)
-	{
-		echo "<script>alert('Stok Habis');</script>";
-		echo "<script>location='index.php';</script>";
-		exit();
-	}
+{
+	echo "<script>alert('Stok Habis');</script>";
+	echo "<script>location='index.php';</script>";
+	exit();
+}
 
 
 // jk sudah ada produk itu di keranjang, maka produk itu jumlahnya +1

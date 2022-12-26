@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'koneksi.php';
+include 'admin/koneksi.php';
 
 // jk tidak ada session pelanggan
 if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
@@ -67,10 +67,10 @@ if ($id_pelanggan_login !==$id_pelanggan_beli)
 				</div>
 				<div class="form-group">
 					<label>Foto Bukti</label>
-					<input type="file" class="form-control" name="bukti" required style="margin-bottom: 10px;">
+					<input type="file" class="form-control" name="bukti" required>
 					<p class="text-danger">foto bukti harus JPG maksimal 2MB</p>
 				</div>
-				<button class="btn btn-primary btn-sm" name="kirim">Kirim</button>
+				<button class="btn btn-primary" name="kirim">Kirim</button>
 			</form>
 			<br>
 		</div>
@@ -103,7 +103,8 @@ if ($id_pelanggan_login !==$id_pelanggan_beli)
 
 	?>
 
+	<?php include 'footer.php'; ?>
+	
 </body>
 </html>
 
-<?php include 'footer.php'; ?>

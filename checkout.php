@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'koneksi.php';
+include 'admin/koneksi.php';
 
 // jk tidak ada session pelanggan(blm login), mk dilarikan ke login
 if (!isset($_SESSION["pelanggan"]))
@@ -81,11 +81,13 @@ if (!isset($_SESSION["pelanggan"]))
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
+							<label>Nama</label>
 							<input type="text" readonly value="<?php echo $_SESSION["pelanggan"]['nama_pelanggan'] ?>" class="form-control">
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
+							<label>Nomor Telpn</label>
 							<input type="text" readonly value="<?php echo $_SESSION["pelanggan"]['telepon_pelanggan'] ?>" class="form-control">
 						</div>
 					</div>
@@ -101,7 +103,7 @@ if (!isset($_SESSION["pelanggan"]))
 						<div class="form-group">
 							<label>Provinsi</label>
 							<select class="form-control" name="nama_provinsi" required>
-							
+								
 							</select>
 						</div>
 					</div>
@@ -109,7 +111,7 @@ if (!isset($_SESSION["pelanggan"]))
 						<div class="form-group">
 							<label>Distrik</label>
 							<select class="form-control" name="nama_distrik" required>
-							
+								
 							</select>
 						</div>
 					</div>
@@ -125,20 +127,21 @@ if (!isset($_SESSION["pelanggan"]))
 						<div class="form-group">
 							<label>Paket</label>
 							<select class="form-control" name="nama_paket" required>
-							
+								
 							</select>
 						</div>
 					</div>
 				</div>
-				<input type="text" name="total_berat" value="<?php echo $totalberat ?>">
-				<input type="text" name="provinsi">
-				<input type="text" name="distrik">
-				<input type="text" name="tipe">
-				<input type="text" name="kodepos">
-				<input type="text" name="ekspedisi">
-				<input type="text" name="paket">
-				<input type="text" name="ongkir">
-				<input type="text" name="estimasi">
+				<br>
+				<input type="text" name="total_berat" value="<?php echo $totalberat ?>" readonly>
+				<input type="text" name="provinsi" placeholder="Provinsi"readonly>
+				<input type="text" name="distrik" placeholder="Distrik"readonly>
+				<input type="text" name="tipe" placeholder="Tipe Distrik"readonly>
+				<input type="text" name="kodepos" placeholder="KodePos"readonly>
+				<input type="text" name="ekspedisi" placeholder="Ekspedisi"readonly>
+				<input type="text" name="paket" placeholder="Paket"readonly>
+				<input type="text" name="ongkir" placeholder="Ongkir"readonly>
+				<input type="text" name="estimasi" placeholder="Estimasi"readonly>
 				<br>
 				<br>
 
@@ -184,6 +187,7 @@ if (!isset($_SESSION["pelanggan"]))
 				{
 				// mendapatkan data produk berdasarkan id produk
 					$ambil=$koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+					
 					$perproduk = $ambil->fetch_assoc();
 
 					$nama = $perproduk['nama_produk'];
@@ -210,97 +214,100 @@ if (!isset($_SESSION["pelanggan"]))
 			// kosongkan keranjang
 				unset($_SESSION["keranjang"]);
 
-				echo "<script>alert('Pembelian sukses'); location='nota.php?id=$id_pembelian_barusan';</script>";
+				echo "<script>alert('Pembelian sukses');</script>";
+				echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
+				
 			}
 			?>
 
 		</div>
 	</section>
 
+	<?php include 'footer.php'; ?>
+
 </body>
 </html>
 
 <script>
-		$(document).ready(function(){
-			$.ajax({
-				type:'post',
-				url:'dataprovinsi.php',
-				success:function(hasil_provinsi)
-				{
-					$("select[name=nama_provinsi]").html(hasil_provinsi);
-				}
-			});
+	$(document).ready(function(){
+		$.ajax({
+			type:'post',
+			url:'dataprovinsi.php',
+			success:function(hasil_provinsi)
+			{
+				$("select[name=nama_provinsi]").html(hasil_provinsi);
+			}
+		});
 
-			$("select[name=nama_provinsi]").on("change",function(){
+		$("select[name=nama_provinsi]").on("change",function(){
 				// ambil id provinsi yg dipilih
-				var id_provinsi_terpilih = $("option:selected",this).attr("id_provinsi");
-				$.ajax({
-					type:'post',
-					url:'datadistrik.php',
-					data:'id_provinsi='+id_provinsi_terpilih,
-					success:function(hasil_distrik)
-					{
-						$("select[name=nama_distrik]").html(hasil_distrik);
-					}
-				});
-			});
-
+			var id_provinsi_terpilih = $("option:selected",this).attr("id_provinsi");
 			$.ajax({
 				type:'post',
-				url:'dataekspedisi.php',
-				success:function(hasil_ekspedisi)
+				url:'datadistrik.php',
+				data:'id_provinsi='+id_provinsi_terpilih,
+				success:function(hasil_distrik)
 				{
-					$("select[name=nama_ekspedisi").html(hasil_ekspedisi);
+					$("select[name=nama_distrik]").html(hasil_distrik);
 				}
 			});
+		});
 
-			$("select[name=nama_ekspedisi]").on("change",function(){
+		$.ajax({
+			type:'post',
+			url:'dataekspedisi.php',
+			success:function(hasil_ekspedisi)
+			{
+				$("select[name=nama_ekspedisi").html(hasil_ekspedisi);
+			}
+		});
+
+		$("select[name=nama_ekspedisi]").on("change",function(){
 				// mendapatkan data ongkir
 
 				// mendapatkan ekspedisi yg dipilh
-				var ekspedisi_terpilih = $("select[name=nama_ekspedisi]").val();
+			var ekspedisi_terpilih = $("select[name=nama_ekspedisi]").val();
 				// mendapatkan id_distrik yang dipilih
-				var distrik_terpilih = $("option:selected","select[name=nama_distrik]").attr("id_distrik");
+			var distrik_terpilih = $("option:selected","select[name=nama_distrik]").attr("id_distrik");
 				// mendapatkan total berat dari inputan
-				var total_berat = $("input[name=total_berat]").val();
-				$.ajax({
-					type:'post',
-					url:'datapaket.php',
-					data:'ekspedisi='+ekspedisi_terpilih+'&distrik='+distrik_terpilih+'&berat='+total_berat,
-					success:function(hasil_paket)
-					{
+			var total_berat = $("input[name=total_berat]").val();
+			$.ajax({
+				type:'post',
+				url:'datapaket.php',
+				data:'ekspedisi='+ekspedisi_terpilih+'&distrik='+distrik_terpilih+'&berat='+total_berat,
+				success:function(hasil_paket)
+				{
 						// console.log(hasil_paket);
-						$("select[name=nama_paket]").html(hasil_paket);
+					$("select[name=nama_paket]").html(hasil_paket);
 
 						// letakan nama ekspedisi terpilih di input ekspedisi
-						$("input[name=ekspedisi]").val(ekspedisi_terpilih);
+					$("input[name=ekspedisi]").val(ekspedisi_terpilih);
 
-					}
-				})
-			});
-
-			$("select[name=nama_distrik]").on("change",function(){
-				var prov = $("option:selected",this).attr("nama_provinsi");
-				var dist = $("option:selected",this).attr("nama_distrik");
-				var tipe = $("option:selected",this).attr("tipe_distrik");
-				var kodepos = $("option:selected",this).attr("kodepos");
-
-				$("input[name=provinsi]").val(prov);
-				$("input[name=distrik]").val(dist);
-				$("input[name=tipe]").val(tipe);
-				$("input[name=kodepos]").val(kodepos);
-			});
-
-			$("select[name=nama_paket]").on("change",function(){
-				var paket = $("option:selected",this).attr("paket");
-				var ongkir = $("option:selected",this).attr("ongkir");
-				var etd = $("option:selected",this).attr("etd");
-
-				$("input[name=paket]").val(paket);
-				$("input[name=ongkir]").val(ongkir);
-				$("input[name=estimasi]").val(etd);
+				}
 			})
 		});
-	</script>
 
-	<?php include 'footer.php'; ?>
+		$("select[name=nama_distrik]").on("change",function(){
+			var prov = $("option:selected",this).attr("nama_provinsi");
+			var dist = $("option:selected",this).attr("nama_distrik");
+			var tipe = $("option:selected",this).attr("tipe_distrik");
+			var kodepos = $("option:selected",this).attr("kodepos");
+
+			$("input[name=provinsi]").val(prov);
+			$("input[name=distrik]").val(dist);
+			$("input[name=tipe]").val(tipe);
+			$("input[name=kodepos]").val(kodepos);
+		});
+
+		$("select[name=nama_paket]").on("change",function(){
+			var paket = $("option:selected",this).attr("paket");
+			var ongkir = $("option:selected",this).attr("ongkir");
+			var etd = $("option:selected",this).attr("etd");
+
+			$("input[name=paket]").val(paket);
+			$("input[name=ongkir]").val(ongkir);
+			$("input[name=estimasi]").val(etd);
+		})
+	});
+</script>
+

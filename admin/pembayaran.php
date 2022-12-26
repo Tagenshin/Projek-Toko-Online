@@ -52,7 +52,7 @@ $detail = $ambil->fetch_assoc();
 			<option value="Batal">Batal</option>
 		</select>
 	</div>
-	<button class="btn btn-primary btn-sm" name="proses">Proses</button>
+	<button class="btn btn-primary" name="proses">Proses</button>
 </form>
 
 <?php

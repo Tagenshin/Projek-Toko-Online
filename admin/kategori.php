@@ -3,7 +3,7 @@
 
 <?php
 $semuadata = array();
-$ambil = $koneksi->query("SELECT * FROM Kategori");
+$ambil = $koneksi->query("SELECT * FROM kategori");
 while($tiap = $ambil->fetch_assoc())
 {
 	$semuadata[] = $tiap;

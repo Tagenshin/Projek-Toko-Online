@@ -1,6 +1,12 @@
 <?php
 session_start();
-include 'koneksi.php';
+include 'admin/koneksi.php';
+
+if (isset($_SESSION["pelanggan"]))
+{
+	header("Location:index.php");
+	exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +22,7 @@ include 'koneksi.php';
 	<br>
 	<div class="container">
 		<div class="row justify-content-md-center">
-			<div class ="col-5">
+			<div class ="col-md-5">
 				<div class="card border-primary mb-3">
 					<div class="card-header">
 						<h3 class="panel-title text-center">Login Pelanggan</h3>
@@ -84,7 +90,8 @@ include 'koneksi.php';
 		</div>
 	</div>
 
+	<?php include 'footer.php'; ?>
+
 </body>
 </html>
 
-<?php include 'footer.php'; ?>

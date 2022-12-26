@@ -34,12 +34,17 @@
 										<?php if ($pecah['status_pembelian']=="Sudah Kirim Pembayaran" ): ?>
 											<a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'] ?>" 
 												class="btn btn-success btn-sm" ><i class="glyphicon glyphicon-usd"></i> Pembayaran</a>
-										<?php else: ?>
-											<a href="index.php?halaman=ubahstatus&id=<?php echo $pecah['id_pembelian'] ?>"
-											class="btn btn-warning btn-sm">Ubah Status</a>
 										<?php endif ?>
 
-										
+										<?php if ($pecah['status_pembelian']!=="Batal" && $pecah['status_pembelian']!=="Sudah Kirim Pembayaran"): ?>
+											<a href="index.php?halaman=ubahstatus&id=<?php echo $pecah['id_pembelian'] ?>"
+											class="btn btn-warning btn-sm"><i class="fa fa-edit "></i> Ubah Status</a>
+										<?php endif ?>
+
+										<?php if ($pecah['status_pembelian']=="Batal"): ?>
+											<a href="index.php?halaman=hapuspembelian&id=<?php echo $pecah['id_pembelian'] ?>" 
+											class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+										<?php endif ?>
 
 									</td>
 								</tr>

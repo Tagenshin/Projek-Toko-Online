@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'koneksi.php';
+include 'admin/koneksi.php';
 
 // mendapatkan id produk dari url
 $id_produk = $_GET["id"];
@@ -15,7 +15,7 @@ $detail = $ambil->fetch_assoc();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>detail produk</title>
+	<title>Detail produk</title>
 </head>
 <body>
 
@@ -77,24 +77,24 @@ $detail = $ambil->fetch_assoc();
 							}
 						}
 							// Stok
-							if ($_POST["jumlah"]>$detail["stok_produk"])
-							{
-								echo "<script>alert('Stok produk tidak mencukupi');</script>";
-								echo "<script>location='detail.php?id=$id_produk';</script>";
-								exit();
-							}
+						if ($_POST["jumlah"]>$detail["stok_produk"])
+						{
+							echo "<script>alert('Stok produk tidak mencukupi');</script>";
+							echo "<script>location='detail.php?id=$id_produk';</script>";
+							exit();
+						}
 
-							if (isset($_SESSION['keranjang'][$id_produk]))
-							{
-								$_SESSION['keranjang'][$id_produk]+=$_POST["jumlah"];
+						if (isset($_SESSION['keranjang'][$id_produk]))
+						{
+							$_SESSION['keranjang'][$id_produk]+=$_POST["jumlah"];
 
-							}
+						}
 							// selain itu (blm ada di keranjang), mk produk itu dianggap dibeli 1
-							else
-							{
-								$_SESSION['keranjang'][$id_produk] =$_POST["jumlah"];
-							}
-							echo "<script>location='keranjang.php';</script>";
+						else
+						{
+							$_SESSION['keranjang'][$id_produk] =$_POST["jumlah"];
+						}
+						echo "<script>location='keranjang.php';</script>";
 					}
 					?>
 
@@ -104,7 +104,8 @@ $detail = $ambil->fetch_assoc();
 		</div>
 	</section>
 
+	<?php include 'footer.php'; ?>
+
 </body>
 </html>
 
-<?php include 'footer.php'; ?>

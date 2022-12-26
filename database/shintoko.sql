@@ -1,820 +1,283 @@
-<!doctype html>
-<html lang="en_GB" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <style id="cfs-style">html{display: none;}</style>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-      <link rel="stylesheet" type="text/css" href="./themes/pmahomme/jquery/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/lib/codemirror.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/hint/show-hint.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/lint/lint.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/theme.css?v=5.1.3&nocache=1339380954ltr&server=1">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/printview.css?v=5.1.3" media="print" id="printcss">
-    <title>localhost / 127.0.0.1 | phpMyAdmin 5.1.3</title>
-    <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-migrate.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/sprintf.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/ajax.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/keyhandler.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/bootstrap/bootstrap.bundle.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/js.cookie.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.mousewheel.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.validate.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-ui-timepicker-addon.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.ba-hashchange-2.0.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.debounce-1.0.6.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/menu_resizer.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/cross_framing_protection.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/rte.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/messages.php?l=en_GB&v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/config.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/doclinks.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/functions.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/navigation.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/indexes.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/common.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/page_settings.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/export_output.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/lib/codemirror.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/mode/sql/sql.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/runmode/runmode.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/hint/show-hint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/hint/sql-hint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/lint/lint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/codemirror/addon/lint/sql-lint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/tracekit.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/error_report.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/drag_drop_import.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/shortcuts_handler.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/console.js?v=5.1.3"></script>
+-- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
+--
+-- Host: localhost    Database: shintoko
+-- ------------------------------------------------------
+-- Server version	10.4.24-MariaDB
 
-<script data-cfasync="false" type="text/javascript">
-// <![CDATA[
-CommonParams.setAll({common_query:"",opendb_url:"index.php?route=/database/structure",lang:"en_GB",server:"1",table:"",db:"",token:"5a296d6e235d6d2d4c3c3e282540352b",text_dir:"ltr",show_databases_navigation_as_tree:true,pma_text_default_tab:"Browse",pma_text_left_default_tab:"Structure",pma_text_left_default_tab2:false,LimitChars:"50",pftext:"",confirm:true,LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:true,is_https:false,rootPath:"/phpmyadmin/",arg_separator:"&",PMA_VERSION:"5.1.3",auth_type:"config",user:"root"});
-var firstDayOfCalendar = '0';
-var themeImagePath = '.\/themes\/pmahomme\/img\/';
-var mysqlDocTemplate = '.\/url.php\u003Furl\u003Dhttps\u00253A\u00252F\u00252Fdev.mysql.com\u00252Fdoc\u00252Frefman\u00252F8.0\u00252Fen\u00252F\u002525s.html';
-var maxInputVars = 1000;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-if ($.datepicker) {
-  $.datepicker.regional[''].closeText = 'Done';
-  $.datepicker.regional[''].prevText = 'Prev';
-  $.datepicker.regional[''].nextText = 'Next';
-  $.datepicker.regional[''].currentText = 'Today';
-  $.datepicker.regional[''].monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  $.datepicker.regional[''].monthNamesShort = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  $.datepicker.regional[''].dayNames = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  $.datepicker.regional[''].dayNamesShort = [
-    'Sun',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-    'Sat',
-  ];
-  $.datepicker.regional[''].dayNamesMin = [
-    'Su',
-    'Mo',
-    'Tu',
-    'We',
-    'Th',
-    'Fr',
-    'Sa',
-  ];
-  $.datepicker.regional[''].weekHeader = 'Wk';
-  $.datepicker.regional[''].showMonthAfterYear = false;
-  $.datepicker.regional[''].yearSuffix = '';
-  $.extend($.datepicker._defaults, $.datepicker.regional['']);
-}
+--
+-- Table structure for table `admin`
+--
 
-if ($.timepicker) {
-  $.timepicker.regional[''].timeText = 'Time';
-  $.timepicker.regional[''].hourText = 'Hour';
-  $.timepicker.regional[''].minuteText = 'Minute';
-  $.timepicker.regional[''].secondText = 'Second';
-  $.extend($.timepicker._defaults, $.timepicker.regional['']);
-}
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `nama_lengkap` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_admin`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-function extendingValidatorMessages () {
-  $.extend($.validator.messages, {
-    required: 'This\u0020field\u0020is\u0020required',
-    remote: 'Please\u0020fix\u0020this\u0020field',
-    email: 'Please\u0020enter\u0020a\u0020valid\u0020email\u0020address',
-    url: 'Please\u0020enter\u0020a\u0020valid\u0020URL',
-    date: 'Please\u0020enter\u0020a\u0020valid\u0020date',
-    dateISO: 'Please\u0020enter\u0020a\u0020valid\u0020date\u0020\u0028ISO\u0029',
-    number: 'Please\u0020enter\u0020a\u0020valid\u0020number',
-    creditcard: 'Please\u0020enter\u0020a\u0020valid\u0020credit\u0020card\u0020number',
-    digits: 'Please\u0020enter\u0020only\u0020digits',
-    equalTo: 'Please\u0020enter\u0020the\u0020same\u0020value\u0020again',
-    maxlength: $.validator.format('Please\u0020enter\u0020no\u0020more\u0020than\u0020\u007B0\u007D\u0020characters'),
-    minlength: $.validator.format('Please\u0020enter\u0020at\u0020least\u0020\u007B0\u007D\u0020characters'),
-    rangelength: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020between\u0020\u007B0\u007D\u0020and\u0020\u007B1\u007D\u0020characters\u0020long'),
-    range: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020between\u0020\u007B0\u007D\u0020and\u0020\u007B1\u007D'),
-    max: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020less\u0020than\u0020or\u0020equal\u0020to\u0020\u007B0\u007D'),
-    min: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020greater\u0020than\u0020or\u0020equal\u0020to\u0020\u007B0\u007D'),
-    validationFunctionForDateTime: $.validator.format('Please\u0020enter\u0020a\u0020valid\u0020date\u0020or\u0020time'),
-    validationFunctionForHex: $.validator.format('Please\u0020enter\u0020a\u0020valid\u0020HEX\u0020input'),
-    validationFunctionForMd5: $.validator.format('This\u0020column\u0020can\u0020not\u0020contain\u0020a\u002032\u0020chars\u0020value'),
-    validationFunctionForAesDesEncrypt: $.validator.format('These\u0020functions\u0020are\u0020meant\u0020to\u0020return\u0020a\u0020binary\u0020result\u003B\u0020to\u0020avoid\u0020inconsistent\u0020results\u0020you\u0020should\u0020store\u0020it\u0020in\u0020a\u0020BINARY,\u0020VARBINARY,\u0020or\u0020BLOB\u0020column.')
-  });
-}
+--
+-- Dumping data for table `admin`
+--
 
-ConsoleEnterExecutes=false
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (1,'teamshin.com','teamshin.com','shinmura'),(2,'admin','admin','Trio Anggoro');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
 
-AJAX.scriptHandler
-  .add('vendor/jquery/jquery.min.js', 0)
-  .add('vendor/jquery/jquery-migrate.js', 0)
-  .add('vendor/sprintf.js', 1)
-  .add('ajax.js', 0)
-  .add('keyhandler.js', 1)
-  .add('vendor/bootstrap/bootstrap.bundle.min.js', 1)
-  .add('vendor/jquery/jquery-ui.min.js', 0)
-  .add('vendor/js.cookie.js', 1)
-  .add('vendor/jquery/jquery.mousewheel.js', 0)
-  .add('vendor/jquery/jquery.validate.js', 0)
-  .add('vendor/jquery/jquery-ui-timepicker-addon.js', 0)
-  .add('vendor/jquery/jquery.ba-hashchange-2.0.js', 0)
-  .add('vendor/jquery/jquery.debounce-1.0.6.js', 0)
-  .add('menu_resizer.js', 1)
-  .add('cross_framing_protection.js', 0)
-  .add('rte.js', 1)
-  .add('messages.php', 0)
-  .add('config.js', 1)
-  .add('doclinks.js', 1)
-  .add('functions.js', 1)
-  .add('navigation.js', 1)
-  .add('indexes.js', 1)
-  .add('common.js', 1)
-  .add('page_settings.js', 1)
-  .add('export_output.js', 1)
-  .add('vendor/codemirror/lib/codemirror.js', 0)
-  .add('vendor/codemirror/mode/sql/sql.js', 0)
-  .add('vendor/codemirror/addon/runmode/runmode.js', 0)
-  .add('vendor/codemirror/addon/hint/show-hint.js', 0)
-  .add('vendor/codemirror/addon/hint/sql-hint.js', 0)
-  .add('vendor/codemirror/addon/lint/lint.js', 0)
-  .add('codemirror/addon/lint/sql-lint.js', 0)
-  .add('vendor/tracekit.js', 1)
-  .add('error_report.js', 1)
-  .add('drag_drop_import.js', 1)
-  .add('shortcuts_handler.js', 1)
-  .add('console.js', 1)
-;
-$(function() {
-        AJAX.fireOnload('vendor/sprintf.js');
-        AJAX.fireOnload('keyhandler.js');
-      AJAX.fireOnload('vendor/bootstrap/bootstrap.bundle.min.js');
-        AJAX.fireOnload('vendor/js.cookie.js');
-                AJAX.fireOnload('menu_resizer.js');
-        AJAX.fireOnload('rte.js');
-        AJAX.fireOnload('config.js');
-      AJAX.fireOnload('doclinks.js');
-      AJAX.fireOnload('functions.js');
-      AJAX.fireOnload('navigation.js');
-      AJAX.fireOnload('indexes.js');
-      AJAX.fireOnload('common.js');
-      AJAX.fireOnload('page_settings.js');
-      AJAX.fireOnload('export_output.js');
-                    AJAX.fireOnload('vendor/tracekit.js');
-      AJAX.fireOnload('error_report.js');
-      AJAX.fireOnload('drag_drop_import.js');
-      AJAX.fireOnload('shortcuts_handler.js');
-      AJAX.fireOnload('console.js');
-  });
-// ]]>
-</script>
+--
+-- Table structure for table `kategori`
+--
 
-  <noscript><style>html{display:block}</style></noscript>
-</head>
-<body>
-    <div id="pma_navigation" data-config-navigation-width="284">
-    <div id="pma_navigation_resizer"></div>
-    <div id="pma_navigation_collapser"></div>
-    <div id="pma_navigation_content">
-      <div id="pma_navigation_header">
+DROP TABLE IF EXISTS `kategori`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kategori` (
+  `id_kategori` int(5) NOT NULL AUTO_INCREMENT,
+  `nama_kategori` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_kategori`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-                  <div id="pmalogo">
-                          <a href="index.php">
-                                      <img id="imgpmalogo" src="./themes/pmahomme/img/logo_left.png" alt="phpMyAdmin">
-                                      </a>
-                      </div>
-        
-        <div id="navipanellinks">
-          <a href="index.php?route=/" title="Home"><img src="themes/dot.gif" title="Home" alt="Home" class="icon ic_b_home"></a>
+--
+-- Dumping data for table `kategori`
+--
 
-                      <a class="logout disableAjax" href="index.php?route=/logout" title="Empty session data"><img src="themes/dot.gif" title="Empty session data" alt="Empty session data" class="icon ic_s_loggoff"></a>
-          
-          <a href="./doc/html/index.html" title="phpMyAdmin documentation" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="phpMyAdmin documentation" alt="phpMyAdmin documentation" class="icon ic_b_docs"></a>
+LOCK TABLES `kategori` WRITE;
+/*!40000 ALTER TABLE `kategori` DISABLE KEYS */;
+INSERT INTO `kategori` VALUES (1,'Handphone'),(2,'Laptop'),(4,'Aksesoris');
+/*!40000 ALTER TABLE `kategori` ENABLE KEYS */;
+UNLOCK TABLES;
 
-          <a href="./url.php?url=https%3A%2F%2Fmariadb.com%2Fkb%2Fen%2Fdocumentation%2F" title="MariaDB Documentation" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="MariaDB Documentation" alt="MariaDB Documentation" class="icon ic_b_sqlhelp"></a>
+--
+-- Table structure for table `ongkir`
+--
 
-          <a id="pma_navigation_settings_icon" href="#" title="Navigation panel settings"><img src="themes/dot.gif" title="Navigation panel settings" alt="Navigation panel settings" class="icon ic_s_cog"></a>
+DROP TABLE IF EXISTS `ongkir`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ongkir` (
+  `id_ongkir` int(5) NOT NULL AUTO_INCREMENT,
+  `nama_kota` varchar(100) NOT NULL,
+  `tarif` int(11) NOT NULL,
+  PRIMARY KEY (`id_ongkir`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-          <a id="pma_navigation_reload" href="#" title="Reload navigation panel"><img src="themes/dot.gif" title="Reload navigation panel" alt="Reload navigation panel" class="icon ic_s_reload"></a>
-        </div>
+--
+-- Dumping data for table `ongkir`
+--
 
-        
-        <img src="themes/dot.gif" title="Loading…" alt="Loading…" style="visibility: hidden; display:none" class="icon ic_ajax_clock_small throbber">
-      </div>
-      <div id="pma_navigation_tree" class="list_container synced highlight autoexpand">
+LOCK TABLES `ongkir` WRITE;
+/*!40000 ALTER TABLE `ongkir` DISABLE KEYS */;
+INSERT INTO `ongkir` VALUES (1,'Demak',20000),(2,'Cirebon',25000);
+/*!40000 ALTER TABLE `ongkir` ENABLE KEYS */;
+UNLOCK TABLES;
 
-  <div class="pma_quick_warp"><div class="drop_list"><button title="Recent tables" class="drop_button btn">Recent</button><ul id="pma_recent_list"><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=pembelian">`shintoko`.`pembelian`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=pembayaran">`shintoko`.`pembayaran`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=pembelian_produk">`shintoko`.`pembelian_produk`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=produk_foto">`shintoko`.`produk_foto`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=pelanggan">`shintoko`.`pelanggan`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=produk">`shintoko`.`produk`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=admin">`shintoko`.`admin`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=kategori">`shintoko`.`kategori`</a></li><li class="warp_link"><a href="index.php?route=/table/recent-favorite&db=shintoko&table=ongkir">`shintoko`.`ongkir`</a></li></ul></div><div class="drop_list"><button title="Favourite tables" class="drop_button btn">Favourites</button><ul id="pma_favorite_list"><li class="warp_link">There are no favourite tables.</li></ul></div><div class="clearfloat"></div></div>
+--
+-- Table structure for table `pelanggan`
+--
 
-<div class="clearfloat"></div>
+DROP TABLE IF EXISTS `pelanggan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pelanggan` (
+  `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT,
+  `email_pelanggan` varchar(100) NOT NULL,
+  `password_pelanggan` varchar(50) NOT NULL,
+  `nama_pelanggan` varchar(100) NOT NULL,
+  `telepon_pelanggan` varchar(25) NOT NULL,
+  `alamat_pelanggan` text NOT NULL,
+  PRIMARY KEY (`id_pelanggan`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-<ul>
-  
-  <!-- CONTROLS START --><li id="navigation_controls_outer"><div id="navigation_controls"><a href="#" id="pma_navigation_collapse" title="Collapse all"><img src="themes/dot.gif" title="Collapse all" alt="Collapse all" class="icon ic_s_collapseall"></a><a href="#" id="pma_navigation_sync" title="Unlink from main panel"><img src="themes/dot.gif" title="Unlink from main panel" alt="Unlink from main panel" class="icon ic_s_link"></a></div></li><!-- CONTROLS ENDS -->
-</ul>
+--
+-- Dumping data for table `pelanggan`
+--
 
+LOCK TABLES `pelanggan` WRITE;
+/*!40000 ALTER TABLE `pelanggan` DISABLE KEYS */;
+INSERT INTO `pelanggan` VALUES (1,'trioanggoro12345@gmail.com','trio','Trio Anggoro','082269441949','Dwijaya'),(2,'riska@gmail.com','riska','Riska Luviana','082269241988','Lubuk Linggau'),(3,'shin@gmail.com','shin','shin','082268559866','Dwijaya'),(4,'trio@gmail.com','trio','Trio','082298977995','Dwijaya'),(5,'triaanggara09@gmail.com','trio','Tria Anggara','082269441948','Dusun 2 Dwijaya');
+/*!40000 ALTER TABLE `pelanggan` ENABLE KEYS */;
+UNLOCK TABLES;
 
+--
+-- Table structure for table `pembayaran`
+--
 
-<div id='pma_navigation_tree_content'>
-  <ul>
-    <li class="first new_database italics"><div class='block'><i class='first'></i></div><div class="block second"><a href='index.php?route=/server/databases&server=1'><img src="themes/dot.gif" title="" alt="" class="icon ic_b_newdb"></a></div><a class='hover_show_full' href='index.php?route=/server/databases&server=1' title='New'>New</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h" data-vpath="cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=information_schema&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=information_schema' title='Structure'>information_schema</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.bXlzcWw=" data-vpath="cm9vdA==.bXlzcWw=" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=mysql&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=mysql' title='Structure'>mysql</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h" data-vpath="cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=performance_schema&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=performance_schema' title='Structure'>performance_schema</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.cGhwbXlhZG1pbg==" data-vpath="cm9vdA==.cGhwbXlhZG1pbg==" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=phpmyadmin&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=phpmyadmin' title='Structure'>phpmyadmin</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.c2hpbnRva28=" data-vpath="cm9vdA==.c2hpbnRva28=" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=shintoko&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=shintoko' title='Structure'>shintoko</a><div class="clearfloat"></div></li><li class="last database"><div class='block'><i></i><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.dGVzdA==" data-vpath="cm9vdA==.dGVzdA==" data-pos="0"></span><img src="themes/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=test&amp;'><img src="themes/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=test' title='Structure'>test</a><div class="clearfloat"></div></li>
-  </ul>
-</div>
+DROP TABLE IF EXISTS `pembayaran`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pembayaran` (
+  `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pembelian` int(11) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `bank` varchar(200) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `bukti` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_pembayaran`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `pembayaran`
+--
 
-      </div>
+LOCK TABLES `pembayaran` WRITE;
+/*!40000 ALTER TABLE `pembayaran` DISABLE KEYS */;
+INSERT INTO `pembayaran` VALUES (2,5,'shin','bri',8607000,'2022-11-27','20221127081848download.jpg'),(3,6,'Shin','BRI',8619998,'2022-11-30','20221130032858download.jpg'),(4,8,'Trio','BRI',5880000,'2022-12-15','20221215035952Bukti.jpg'),(5,15,'Trio','Bri',19901000,'2022-12-16','20221216135917Bukti.jpg');
+/*!40000 ALTER TABLE `pembayaran` ENABLE KEYS */;
+UNLOCK TABLES;
 
-      <div id="pma_navi_settings_container">
-                  <div id="pma_navigation_settings"><div class="page_settings"><form method="post" action="index.php&#x3F;route&#x3D;&#x25;2Fexport&amp;server&#x3D;1" class="config-form disableAjax">
-  <input type="hidden" name="tab_hash" value="">
-      <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
-    <input type="hidden" name="token" value="5a296d6e235d6d2d4c3c3e282540352b">
-  <input type="hidden" name="submit_save" value="Navi">
-<ul class="tabs responsivetable row">
-      <li><a href="#Navi_panel">Navigation panel</a></li>
-      <li><a href="#Navi_tree">Navigation tree</a></li>
-      <li><a href="#Navi_servers">Servers</a></li>
-      <li><a href="#Navi_databases">Databases</a></li>
-      <li><a href="#Navi_tables">Tables</a></li>
-  </ul>
-<div class="tabs_contents col">
-<fieldset class="optbox" id="Navi_panel">
-<legend>Navigation panel</legend>
-    <p>Customise appearance of the navigation panel.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="ShowDatabasesNavigationAsTree">Show databases navigation as tree</label><span class="doc"><a href="./doc/html/config.html#cfg_ShowDatabasesNavigationAsTree" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>In the navigation panel, replaces the database tree with a selector</small></th><td><span class="checkbox"><input type="checkbox" name="ShowDatabasesNavigationAsTree" id="ShowDatabasesNavigationAsTree" checked="checked"></span><a class="restore-default hide" href="#ShowDatabasesNavigationAsTree" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLinkWithMainPanel">Link with main panel</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLinkWithMainPanel" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Link with main panel by highlighting the current database or table.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationLinkWithMainPanel" id="NavigationLinkWithMainPanel" checked="checked"></span><a class="restore-default hide" href="#NavigationLinkWithMainPanel" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationDisplayLogo">Display logo</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationDisplayLogo" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Show logo in navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationDisplayLogo" id="NavigationDisplayLogo" checked="checked"></span><a class="restore-default hide" href="#NavigationDisplayLogo" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLogoLink">Logo link URL</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLogoLink" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>URL where logo in the navigation panel will point to.</small></th><td><input type="text" class="w-75" name="NavigationLogoLink" id="NavigationLogoLink" value="index.php"><a class="restore-default hide" href="#NavigationLogoLink" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLogoLinkWindow">Logo link target</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLogoLinkWindow" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Open the linked page in the main window (<code>main</code>) or in a new one (<code>new</code>).</small></th><td><select class="w-75" name="NavigationLogoLinkWindow" id="NavigationLogoLinkWindow"><option value="main" selected="selected">main</option><option value="new">new</option></select><a class="restore-default hide" href="#NavigationLogoLinkWindow" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreePointerEnable">Enable highlighting</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreePointerEnable" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Highlight server under the mouse cursor.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreePointerEnable" id="NavigationTreePointerEnable" checked="checked"></span><a class="restore-default hide" href="#NavigationTreePointerEnable" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="FirstLevelNavigationItems">Maximum items on first level</label><span class="doc"><a href="./doc/html/config.html#cfg_FirstLevelNavigationItems" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>The number of items that can be displayed on each page on the first level of the navigation tree.</small></th><td><input type="number" name="FirstLevelNavigationItems" id="FirstLevelNavigationItems" value="100"><a class="restore-default hide" href="#FirstLevelNavigationItems" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDisplayItemFilterMinimum">Minimum number of items to display the filter box</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDisplayItemFilterMinimum" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Defines the minimum number of items (tables, views, routines and events) to display a filter box.</small></th><td><input type="number" name="NavigationTreeDisplayItemFilterMinimum" id="NavigationTreeDisplayItemFilterMinimum" value="30"><a class="restore-default hide" href="#NavigationTreeDisplayItemFilterMinimum" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NumRecentTables">Recently used tables</label><span class="doc"><a href="./doc/html/config.html#cfg_NumRecentTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Maximum number of recently used tables; set 0 to disable.</small></th><td><input type="number" name="NumRecentTables" id="NumRecentTables" value="10"><a class="restore-default hide" href="#NumRecentTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NumFavoriteTables">Favourite tables</label><span class="doc"><a href="./doc/html/config.html#cfg_NumFavoriteTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Maximum number of favourite tables; set 0 to disable.</small></th><td><input type="number" name="NumFavoriteTables" id="NumFavoriteTables" value="10"><a class="restore-default hide" href="#NumFavoriteTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationWidth">Navigation panel width</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationWidth" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Set to 0 to collapse navigation panel.</small></th><td><input type="number" name="NavigationWidth" id="NavigationWidth" class="custom" value="284"><a class="restore-default hide" href="#NavigationWidth" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_tree">
-<legend>Navigation tree</legend>
-    <p>Customise the navigation tree.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="MaxNavigationItems">Maximum items in branch</label><span class="doc"><a href="./doc/html/config.html#cfg_MaxNavigationItems" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>The number of items that can be displayed on each page of the navigation tree.</small></th><td><input type="number" name="MaxNavigationItems" id="MaxNavigationItems" value="50"><a class="restore-default hide" href="#MaxNavigationItems" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeEnableGrouping">Group items in the tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeEnableGrouping" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Group items in the navigation tree (determined by the separator defined in the Databases and Tables tabs above).</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeEnableGrouping" id="NavigationTreeEnableGrouping" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeEnableGrouping" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeEnableExpansion">Enable navigation tree expansion</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeEnableExpansion" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to offer the possibility of tree expansion in the navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeEnableExpansion" id="NavigationTreeEnableExpansion" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeEnableExpansion" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowTables">Show tables in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowTables" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show tables under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowTables" id="NavigationTreeShowTables" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowTables" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowViews">Show views in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowViews" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show views under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowViews" id="NavigationTreeShowViews" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowViews" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowFunctions">Show functions in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowFunctions" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show functions under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowFunctions" id="NavigationTreeShowFunctions" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowFunctions" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowProcedures">Show procedures in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowProcedures" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show procedures under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowProcedures" id="NavigationTreeShowProcedures" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowProcedures" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowEvents">Show events in tree</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowEvents" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to show events under database in the navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowEvents" id="NavigationTreeShowEvents" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowEvents" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeAutoexpandSingleDb">Expand single database</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeAutoexpandSingleDb" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Whether to expand single database in the navigation tree automatically.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeAutoexpandSingleDb" id="NavigationTreeAutoexpandSingleDb" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeAutoexpandSingleDb" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_servers">
-<legend>Servers</legend>
-    <p>Servers display options.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationDisplayServers">Display servers selection</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationDisplayServers" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Display server choice at the top of the navigation panel.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationDisplayServers" id="NavigationDisplayServers" checked="checked"></span><a class="restore-default hide" href="#NavigationDisplayServers" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="DisplayServersList">Display servers as a list</label><span class="doc"><a href="./doc/html/config.html#cfg_DisplayServersList" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>Show server listing as a list instead of a drop down.</small></th><td><span class="checkbox"><input type="checkbox" name="DisplayServersList" id="DisplayServersList"></span><a class="restore-default hide" href="#DisplayServersList" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_databases">
-<legend>Databases</legend>
-    <p>Databases display options.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationTreeDisplayDbFilterMinimum">Minimum number of databases to display the database filter box</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDisplayDbFilterMinimum" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><input type="number" name="NavigationTreeDisplayDbFilterMinimum" id="NavigationTreeDisplayDbFilterMinimum" value="30"><a class="restore-default hide" href="#NavigationTreeDisplayDbFilterMinimum" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDbSeparator">Database tree separator</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDbSeparator" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>String that separates databases into different tree levels.</small></th><td><input type="text" size="25" name="NavigationTreeDbSeparator" id="NavigationTreeDbSeparator" value="_"><a class="restore-default hide" href="#NavigationTreeDbSeparator" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_tables">
-<legend>Tables</legend>
-    <p>Tables display options.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationTreeDefaultTabTable">Target for quick access icon</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDefaultTabTable" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><select class="w-75" name="NavigationTreeDefaultTabTable" id="NavigationTreeDefaultTabTable"><option value="structure" selected="selected">Structure</option><option value="sql">SQL</option><option value="search">Search</option><option value="insert">Insert</option><option value="browse">Browse</option></select><a class="restore-default hide" href="#NavigationTreeDefaultTabTable" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDefaultTabTable2">Target for second quick access icon</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDefaultTabTable2" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><select class="w-75" name="NavigationTreeDefaultTabTable2" id="NavigationTreeDefaultTabTable2"><option value="" selected="selected"></option><option value="structure">Structure</option><option value="sql">SQL</option><option value="search">Search</option><option value="insert">Insert</option><option value="browse">Browse</option></select><a class="restore-default hide" href="#NavigationTreeDefaultTabTable2" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeTableSeparator">Table tree separator</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeTableSeparator" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span><small>String that separates tables into different tree levels.</small></th><td><input type="text" size="25" name="NavigationTreeTableSeparator" id="NavigationTreeTableSeparator" value="__"><a class="restore-default hide" href="#NavigationTreeTableSeparator" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeTableLevel">Maximum table tree depth</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeTableLevel" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
-</span></th><td><input type="number" name="NavigationTreeTableLevel" id="NavigationTreeTableLevel" value="1"><a class="restore-default hide" href="#NavigationTreeTableLevel" title="Restore default value"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-</div>
-</form>
-<script type="text/javascript">
-    if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
-        configInlineParams = [];
-    }
-    configInlineParams.push(function () {
-        registerFieldValidator('FirstLevelNavigationItems', 'validatePositiveNumber', true);
-registerFieldValidator('NavigationTreeDisplayItemFilterMinimum', 'validatePositiveNumber', true);
-registerFieldValidator('NumRecentTables', 'validateNonNegativeNumber', true);
-registerFieldValidator('NumFavoriteTables', 'validateNonNegativeNumber', true);
-registerFieldValidator('NavigationWidth', 'validateNonNegativeNumber', true);
-registerFieldValidator('MaxNavigationItems', 'validatePositiveNumber', true);
-registerFieldValidator('NavigationTreeTableLevel', 'validatePositiveNumber', true);
-$.extend(Messages, {
-	'error_nan_p': 'Not a positive number!',
-	'error_nan_nneg': 'Not a non-negative number!',
-	'error_incorrect_port': 'Not a valid port number!',
-	'error_invalid_value': 'Incorrect value!',
-	'error_value_lte': 'Value must be less than or equal to %s!'});
-$.extend(defaultValues, {
-	'ShowDatabasesNavigationAsTree': true,
-	'NavigationLinkWithMainPanel': true,
-	'NavigationDisplayLogo': true,
-	'NavigationLogoLink': 'index.php',
-	'NavigationLogoLinkWindow': ['main'],
-	'NavigationTreePointerEnable': true,
-	'FirstLevelNavigationItems': '100',
-	'NavigationTreeDisplayItemFilterMinimum': '30',
-	'NumRecentTables': '10',
-	'NumFavoriteTables': '10',
-	'NavigationWidth': '240',
-	'MaxNavigationItems': '50',
-	'NavigationTreeEnableGrouping': true,
-	'NavigationTreeEnableExpansion': true,
-	'NavigationTreeShowTables': true,
-	'NavigationTreeShowViews': true,
-	'NavigationTreeShowFunctions': true,
-	'NavigationTreeShowProcedures': true,
-	'NavigationTreeShowEvents': true,
-	'NavigationTreeAutoexpandSingleDb': true,
-	'NavigationDisplayServers': true,
-	'DisplayServersList': false,
-	'NavigationTreeDisplayDbFilterMinimum': '30',
-	'NavigationTreeDbSeparator': '_',
-	'NavigationTreeDefaultTabTable': ['structure'],
-	'NavigationTreeDefaultTabTable2': [''],
-	'NavigationTreeTableSeparator': '__',
-	'NavigationTreeTableLevel': '1'});
-    });
-    if (typeof configScriptLoaded !== 'undefined' && configInlineParams) {
-        loadInlineConfig();
-    }
-</script>
-</div></div>
-              </div>
-    </div>
+--
+-- Table structure for table `pembelian`
+--
 
-          <div class="pma_drop_handler">
-        Drop files here      </div>
-      <div class="pma_sql_import_status">
-        <h2>
-          SQL upload          ( <span class="pma_import_count">0</span> )
-          <span class="close">x</span>
-          <span class="minimize">-</span>
-        </h2>
-        <div></div>
-      </div>
-      </div>
+DROP TABLE IF EXISTS `pembelian`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pembelian` (
+  `id_pembelian` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pelanggan` int(11) NOT NULL,
+  `tanggal_pembelian` date NOT NULL,
+  `total_pembelian` int(11) NOT NULL,
+  `alamat_pengiriman` text NOT NULL,
+  `status_pembelian` varchar(100) NOT NULL DEFAULT 'Pending',
+  `resi_pengiriman` varchar(50) NOT NULL,
+  `totalberat` int(11) NOT NULL,
+  `provinsi` varchar(255) NOT NULL,
+  `distrik` varchar(255) NOT NULL,
+  `tipe` varchar(255) NOT NULL,
+  `kodepos` varchar(255) NOT NULL,
+  `ekspedisi` varchar(255) NOT NULL,
+  `paket` varchar(255) NOT NULL,
+  `ongkir` int(11) NOT NULL,
+  `estimasi` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_pembelian`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-  
-  
+--
+-- Dumping data for table `pembelian`
+--
 
-  
-      <noscript>
-      <div class="alert alert-danger" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Javascript must be enabled past this point!
-</div>
+LOCK TABLES `pembelian` WRITE;
+/*!40000 ALTER TABLE `pembelian` DISABLE KEYS */;
+INSERT INTO `pembelian` VALUES (1,2,'2022-11-18',5998000,'Dwijaya','Pending','',0,'','','','','','',0,''),(2,2,'2022-11-18',8802000,'cirebon','Pending','',0,'','','','','','',0,''),(3,2,'2022-11-18',2989000,'cirebon','Pending','',0,'','','','','','',0,''),(4,2,'2022-11-18',3009000,'Demak','Pending','',0,'','','','','','',0,''),(5,3,'2022-11-21',8607000,'demak','Barang Sudah Sampai','ABC123',0,'','','','','','',0,''),(6,3,'2022-11-27',8619998,'dwijaya','Barang Sudah Sampai','ABC124',0,'','','','','','',0,''),(7,2,'2022-12-09',6080000,'					Dwijaya','Pending','',2000,'Sumatera Selatan','Lubuk Linggau','Kota','31614','jne','REG',102000,'4-5'),(8,3,'2022-12-09',5880000,'Dwijaya','Barang Sudah Sampai','ABC125',2000,'Sumatera Selatan','Musi Rawas','Kabupaten','31661','jne','OKE',92000,'7-8'),(9,3,'2022-12-14',6080000,'dwijya','Batal','',2000,'Sumatera Selatan','Musi Rawas','Kabupaten','31661','jne','REG',102000,'4-5'),(10,3,'2022-12-14',15180000,'Dwijaya','Batal','',5000,'Kalimantan Barat','Kapuas Hulu','Kabupaten','78719','jne','REG',235000,'3-5'),(12,3,'2022-12-14',11400000,'Dwijaya','Batal','',4000,'Sumatera Selatan','Musi Rawas','Kabupaten','31661','jne','REG',204000,'4-5'),(13,3,'2022-12-15',4333999,'Dwijaya','Batal','',500,'Bali','Badung','Kabupaten','80351','jne','REG',34000,'3-4'),(14,3,'2022-12-15',4333999,'Dwijaya','Batal','',500,'Bali','Badung','Kabupaten','80351','jne','REG',34000,'3-4'),(15,3,'2022-12-15',19901000,'Dwijaya','Barang Dikirim','123ABD',900,'Sumatera Selatan','Musi Rawas','Kabupaten','31661','jne','REG',51000,'4-5'),(16,3,'2022-12-16',11850999,'Dwijaya','Batal','',1000,'Sumatera Selatan','Musi Rawas','Kabupaten','31661','jne','REG',51000,'4-5'),(17,3,'2022-12-16',2020510,'Dwijaya','Pending','',2000,'Sumatera Selatan','Musi Rawas','Kabupaten','31661','jne','REG',102000,'4-5');
+/*!40000 ALTER TABLE `pembelian` ENABLE KEYS */;
+UNLOCK TABLES;
 
-    </noscript>
-  
-      <div id="floating_menubar"></div>
-<nav id="server-breadcrumb" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <img src="themes/dot.gif" title="" alt="" class="icon ic_s_host">
-      <a href="index.php?route=/" data-raw-text="127.0.0.1">
-        Server:        127.0.0.1
-      </a>
-    </li>
+--
+-- Table structure for table `pembelian_produk`
+--
 
-      </ol>
-</nav>
-<div id="topmenucontainer" class="menucontainer">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-label="Toggle navigation" aria-controls="navbarNav" aria-expanded="false">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul id="topmenu" class="navbar-nav">
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/databases">
-              <img src="themes/dot.gif" title="Databases" alt="Databases" class="icon ic_s_db">&nbsp;Databases
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/sql">
-              <img src="themes/dot.gif" title="SQL" alt="SQL" class="icon ic_b_sql">&nbsp;SQL
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/status">
-              <img src="themes/dot.gif" title="Status" alt="Status" class="icon ic_s_status">&nbsp;Status
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/privileges&viewing_mode=server">
-              <img src="themes/dot.gif" title="User accounts" alt="User accounts" class="icon ic_s_rights">&nbsp;User accounts
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/export">
-              <img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/import">
-              <img src="themes/dot.gif" title="Import" alt="Import" class="icon ic_b_import">&nbsp;Import
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/preferences/manage">
-              <img src="themes/dot.gif" title="Settings" alt="Settings" class="icon ic_b_tblops">&nbsp;Settings
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/replication">
-              <img src="themes/dot.gif" title="Replication" alt="Replication" class="icon ic_s_replication">&nbsp;Replication
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/variables">
-              <img src="themes/dot.gif" title="Variables" alt="Variables" class="icon ic_s_vars">&nbsp;Variables
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/collations">
-              <img src="themes/dot.gif" title="Charsets" alt="Charsets" class="icon ic_s_asci">&nbsp;Charsets
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/engines">
-              <img src="themes/dot.gif" title="Engines" alt="Engines" class="icon ic_b_engine">&nbsp;Engines
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/plugins">
-              <img src="themes/dot.gif" title="Plug-ins" alt="Plug-ins" class="icon ic_b_plugin">&nbsp;Plug-ins
-                          </a>
-          </li>
-              </ul>
-    </div>
-  </nav>
-</div>
+DROP TABLE IF EXISTS `pembelian_produk`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pembelian_produk` (
+  `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pembelian` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `berat` int(11) NOT NULL,
+  `subberat` int(11) NOT NULL,
+  `subharga` int(11) NOT NULL,
+  PRIMARY KEY (`id_pembelian_produk`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-    <span id="page_nav_icons">
-      <span id="lock_page_icon"></span>
-      <span id="page_settings_icon">
-        <img src="themes/dot.gif" title="Page-related settings" alt="Page-related settings" class="icon ic_s_cog">
-      </span>
-      <a id="goto_pagetop" href="#"><img src="themes/dot.gif" title="Click on the bar to scroll to top of page" alt="Click on the bar to scroll to top of page" class="icon ic_s_top"></a>
-    </span>
-  
-  <div id="pma_console_container">
-    <div id="pma_console">
-                <div class="toolbar collapsed">
-                    <div class="switch_button console_switch">
-            <img src="themes/dot.gif" title="SQL Query Console" alt="SQL Query Console" class="icon ic_console">
-            <span>Console</span>
-        </div>
-                            <div class="button clear">
-            
-            <span>Clear</span>
-        </div>
-                            <div class="button history">
-            
-            <span>History</span>
-        </div>
-                            <div class="button options">
-            
-            <span>Options</span>
-        </div>
-                            <div class="button bookmarks">
-            
-            <span>Bookmarks</span>
-        </div>
-                            <div class="button debug hide">
-            
-            <span>Debug SQL</span>
-        </div>
-            </div>
-                <div class="content">
-            <div class="console_message_container">
-                <div class="message welcome">
-                    <span id="instructions-0">
-                        Press Ctrl+Enter to execute query                    </span>
-                    <span class="hide" id="instructions-1">
-                        Press Enter to execute query                    </span>
-                </div>
-                            </div><!-- console_message_container -->
-            <div class="query_input">
-                <span class="console_query_input"></span>
-            </div>
-        </div><!-- message end -->
-                <div class="mid_layer"></div>
-                <div class="card" id="debug_console">
-            <div class="toolbar ">
-                    <div class="button order order_asc">
-            
-            <span>ascending</span>
-        </div>
-                            <div class="button order order_desc">
-            
-            <span>descending</span>
-        </div>
-                            <div class="text">
-            
-            <span>Order:</span>
-        </div>
-                            <div class="switch_button">
-            
-            <span>Debug SQL</span>
-        </div>
-                            <div class="button order_by sort_count">
-            
-            <span>Count</span>
-        </div>
-                            <div class="button order_by sort_exec">
-            
-            <span>Execution order</span>
-        </div>
-                            <div class="button order_by sort_time">
-            
-            <span>Time taken</span>
-        </div>
-                            <div class="text">
-            
-            <span>Order by:</span>
-        </div>
-                            <div class="button group_queries">
-            
-            <span>Group queries</span>
-        </div>
-                            <div class="button ungroup_queries">
-            
-            <span>Ungroup queries</span>
-        </div>
-            </div>
-            <div class="content debug">
-                <div class="message welcome"></div>
-                <div class="debugLog"></div>
-            </div> <!-- Content -->
-            <div class="templates">
-                <div class="debug_query action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action dbg_show_trace">
-            Show trace
-                    </span>
-                            <span class="action dbg_hide_trace">
-            Hide trace
-                    </span>
-                            <span class="text count hide">
-            Count
-                    </span>
-                            <span class="text time">
-            Time taken
-                    </span>
-            </div>
-            </div> <!-- Template -->
-        </div> <!-- Debug SQL card -->
-                    <div class="card" id="pma_bookmarks">
-                <div class="toolbar ">
-                    <div class="switch_button">
-            
-            <span>Bookmarks</span>
-        </div>
-                            <div class="button refresh">
-            
-            <span>Refresh</span>
-        </div>
-                            <div class="button add">
-            
-            <span>Add</span>
-        </div>
-            </div>
-                <div class="content bookmark">
-                    <div class="message welcome">
-    <span>No bookmarks</span>
-</div>
+--
+-- Dumping data for table `pembelian_produk`
+--
 
-                </div>
-                <div class="mid_layer"></div>
-                <div class="card add">
-                    <div class="toolbar ">
-                    <div class="switch_button">
-            
-            <span>Add bookmark</span>
-        </div>
-            </div>
-                    <div class="content add_bookmark">
-                        <div class="options">
-                            <label>
-                                Label: <input type="text" name="label">
-                            </label>
-                            <label>
-                                Target database: <input type="text" name="targetdb">
-                            </label>
-                            <label>
-                                <input type="checkbox" name="shared">Share this bookmark                            </label>
-                            <button class="btn btn-primary" type="submit" name="submit">OK</button>
-                        </div> <!-- options -->
-                        <div class="query_input">
-                            <span class="bookmark_add_input"></span>
-                        </div>
-                    </div>
-                </div> <!-- Add bookmark card -->
-            </div> <!-- Bookmarks card -->
-                        <div class="card" id="pma_console_options">
-            <div class="toolbar ">
-                    <div class="switch_button">
-            
-            <span>Options</span>
-        </div>
-                            <div class="button default">
-            
-            <span>Set default</span>
-        </div>
-            </div>
-            <div class="content">
-                <label>
-                    <input type="checkbox" name="always_expand">Always expand query messages                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="start_history">Show query history at start                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="current_query">Show current browsing query                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="enter_executes">
-                        Execute queries on Enter and insert new line with Shift + Enter. To make this permanent, view settings.                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="dark_theme">Switch to dark theme                </label>
-                <br>
-            </div>
-        </div> <!-- Options card -->
-        <div class="templates">
-                        <div class="query_actions">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span></span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span></span>
-                    </span>
-            </div>
-        </div>
-    </div> <!-- #console end -->
-</div> <!-- #console_container end -->
+LOCK TABLES `pembelian_produk` WRITE;
+/*!40000 ALTER TABLE `pembelian_produk` DISABLE KEYS */;
+INSERT INTO `pembelian_produk` VALUES (1,1,1,2,'Realme 10 8+128GB (Chipset Helio G99 | Layar Super AMOLED - Putih',2989000,1000,2000,5978000),(2,2,1,2,'Realme 10 8+128GB (Chipset Helio G99 | Layar Super AMOLED - Putih',2989000,1000,2000,5978000),(3,2,2,1,'REALME 10 8/128GB 4/128GB GARANSI RESMI REALME INDONESIA - 4/128GB',2799000,1000,1000,2799000),(4,3,1,1,'Realme 10 8+128GB (Chipset Helio G99 | Layar Super AMOLED - Putih',2989000,1000,1000,2989000),(5,4,1,1,'Realme 10 8+128GB (Chipset Helio G99 | Layar Super AMOLED - Putih',2989000,1000,1000,2989000),(6,5,1,1,'Realme 10 8+128GB (Chipset Helio G99 | Layar Super AMOLED - Putih',2989000,1000,1000,2989000),(7,5,2,2,'REALME 10 8/128GB 4/128GB GARANSI RESMI REALME INDONESIA - 4/128GB',2799000,1000,2000,5598000),(8,6,3,2,'Iphone Xr 64 Gb 128 Gb 256 Gb Inter Second Like New - 64 Gb',4299999,500,1000,8599998),(9,7,1,2,'Realme 10 8+128GB (Chipset Helio G99)',2989000,1000,2000,5978000),(10,8,1,1,'Realme 10 8+128GB (Chipset Helio G99)',2989000,1000,1000,2989000),(11,8,2,1,'REALME 10 8/128GB 4/128GB',2799000,1000,1000,2799000),(12,9,1,2,'Realme 10 8+128GB (Chipset Helio G99)',2989000,1000,2000,5978000),(13,10,1,5,'Realme 10 8+128GB (Chipset Helio G99)',2989000,1000,5000,14945000),(14,12,2,4,'REALME 10 8/128GB 4/128GB',2799000,1000,4000,11196000),(15,13,3,1,'Iphone Xr 64 Gb 128 Gb',4299999,500,500,4299999),(16,14,3,1,'Iphone Xr 64 Gb 128 Gb',4299999,500,500,4299999),(17,15,4,1,'Apple iPhone 14 Pro 5G 1TB',19850000,900,900,19850000),(18,16,6,1,'iPhone 12 64 GB 128 GB',11799999,1000,1000,11799999),(19,17,9,1,'Laptop Murah Samsung Chromebook',1918510,2000,2000,1918510);
+/*!40000 ALTER TABLE `pembelian_produk` ENABLE KEYS */;
+UNLOCK TABLES;
 
+--
+-- Table structure for table `produk`
+--
 
-  <div id="page_content">
-    
+DROP TABLE IF EXISTS `produk`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `produk` (
+  `id_produk` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kategori` int(5) NOT NULL,
+  `nama_produk` varchar(100) NOT NULL,
+  `harga_produk` int(11) NOT NULL,
+  `berat_produk` int(11) NOT NULL,
+  `foto_produk` varchar(100) NOT NULL,
+  `deskripsi_produk` text NOT NULL,
+  `stok_produk` int(11) NOT NULL,
+  PRIMARY KEY (`id_produk`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-    
-<!DOCTYPE HTML>
-<html lang="en_GB" dir="ltr">
-<head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>phpMyAdmin</title>
-    <meta charset="utf-8">
-    <style type="text/css">
-        html {
-            padding: 0;
-            margin: 0;
-        }
-        body  {
-            font-family: sans-serif;
-            font-size: small;
-            color: #000000;
-            background-color: #F5F5F5;
-            margin: 1em;
-        }
-        h1 {
-            margin: 0;
-            padding: 0.3em;
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #ff0000;
-        }
-        p {
-            margin: 0;
-            padding: 0.5em;
-            border: 0.1em solid red;
-            background-color: #ffeeee;
-        }
-    </style>
-</head>
-<body>
-<h1>phpMyAdmin - Error</h1>
-<p>index.php: Missing parameter: what<a href="./doc/html/faq.html#faqmissingparameters" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a><br>index.php: Missing parameter: export_type<a href="./doc/html/faq.html#faqmissingparameters" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a><br></p>
-</body>
-</html>
-  </div>
-  <div id="selflink" class="print_ignore"><a href="index.php?route=%2Fexport&amp;server=1" title="Open new phpMyAdmin window" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" class="icon ic_window-new"></a></div>
+--
+-- Dumping data for table `produk`
+--
 
-  <div class="clearfloat" id="pma_errors">
-    
-  </div>
+LOCK TABLES `produk` WRITE;
+/*!40000 ALTER TABLE `produk` DISABLE KEYS */;
+INSERT INTO `produk` VALUES (1,1,'Realme 10 8+128GB (Chipset Helio G99)',2989000,1000,'realme 10.jpg','Spesifikasi: <br>\r\nChipset Helio G99 Layar Super AMOLED 90Hz<br>\r\nRasio Layar-ke-Tubuh 90,8%.<br>\r\nCorning Gorilla Glass5<br>\r\n7.95mm Ultra-slim 5000mAh Baterai Besar<br>\r\n33W SUPERVOOC Mengisi Kamera Al Warna 50MP<br>\r\n200% Pembicara UltraBoom<br>\r\nKamera Swafoto 16MP<br>\r\nHingga 1TB Memori Eksternal Pemindai Sidik Jari yang dipasang di samping realme UI 3.0 (Berdasarkan Android 12) Kualitas Nyata',0),(2,1,'REALME 10 8/128GB 4/128GB',2799000,1000,'realme.png','REALME 10 GARANSI RESMI REALME<br>\r\nBeli Sekarang dan Dapatkan 24 Item EXCLUSIVE BONUS<br><br>\r\n\r\nREADY STOK !!!<br><br>\r\n\r\nVarian :<br>\r\n- RAM 4/128GB<br>\r\n- RAM 8/128GB<br>',1),(3,1,'Iphone Xr 64 Gb 128 Gb',4299999,500,'iphone xr.png','Kondisi: Bekas <br>\r\nBerat Satuan: 500 g<br>\r\nKategori: iOS<br>\r\nEtalase: Iphone murah<br>',3),(4,1,'Apple iPhone 14 Pro 5G 1TB',19850000,900,'iphone 12 pro.jpg','Kondisi: Baru <br>\r\nBerat Satuan: 900 g<br>\r\nKategori: iOS<br>\r\nEtalase: Apple iPhone 14 Series<br>\r\nKatalog: Apple iPhone 14 Pro<br>',4),(6,1,'iPhone 12 64 GB 128 GB',11799999,1000,'iphone 12.jpg','Product: iPhone 12 (IDN)<br>\r\nNetwork: 5G<br>\r\nColour: Purple, Blue, Green, Red, White, Black<br>\r\nStorage: 64 GB, 128 GB, 256 GB<br>',4),(7,1,'Case iPhone 12 Pro Max',180002,150,'case iphone 12 pro.jpg','Case iPhone 12 Series Spigen Ultra Hybrid merupakan Hybrid case yang terbuat dari bahan PC (Hardcase) yang bening transparan pada bagian belakang case, dan TPU (Softcase) pada bagian bumper samping yang berfungsi sebagai anti-shock. Lindungi Smartphone dengan Spigen Ultra Hybrid',5),(8,2,'LAPTOP DELL LATITUDE 4300',1300000,2300,'laptop del2l.jpg','SPESIFIKASI:<br><br>\r\n\r\nPROCESSOR INTEL CORE 2 DUO<br>\r\nRAM 2/4GB<br>\r\nHARDISK HDD 160GB// 500GB<br>\r\nVGA ONBOARD INTEL GRAPHIC HD<br>\r\nWIFI CONNECTION<br>\r\nDVD-RW<br>\r\nWEBCAM READY<br>\r\nUSB/LAN PORT<br>\r\nMS OFFICE INSTALLED<br>\r\nOS WINDOWS INSTALLED<br>',5),(9,2,'Laptop Murah Samsung Chromebook',1918510,2000,'laptop samsung.jpg','SPESIFIKASI<br><br>\r\n\r\nProcessor: Intel® Celeron® Processor N4020 (1.10 Ghz up to 2.70 Ghz 4 MB L2 Cache)<br>\r\nMemory: 4 GB LPDDR4 Memory (On BD 4 GB)<br>\r\nStorage: 32 GB e.MMC<br>\r\nGraphic: Intel® UHD Graphics 600<br>\r\nDisplay: 11.6\" HD LED Display (1366 x 768), Anti-Reflective<br>\r\nOperating System: Chrome OS<br>',4),(10,2,'MacBook Air 2022 M2 Chip 13',17525000,3000,'macbook air.jpg','Spesifikasi :<br>\r\nApple M2 chip<br>\r\n8-core GPU (256GB)<br>\r\n10-Core GPU (512GB)<br>\r\nLiquid Retina display<br>\r\nTwo Thunderbolt / USB 4 ports<br>\r\n8GB unified memory<br>',5),(11,2,'ASUS VIVOBOOK 15',5499000,4000,'asus vivobook.jpg','Spesifikasi :<br>\r\n• Processor : Intel® Core™ i3-1005G1 Processor 1.2 GHz (4M Cache, up to 3.4 GHz, 2 cores)<br>\r\n• Intergrated GPU : Intel® UHD Graphics<br>\r\n• Memory : 4GB DDR4 on board<br>\r\n• Storage : 256GB M.2 NVMe™ PCIe® 3.0 SSD<br>\r\n• Panel Size : 15.6-inch FHD (1920 x 1080) 16:9 aspect ratio 200nits 45% NTSC color gamut<br>',5),(12,2,'Laptop Lenovo Thinkpad T420',1650000,4000,'lenovo.jpg','💻 LAPTOP SECOND LENOVO T420<br><br>\r\n\r\n☆ Intel Core i5 Gen 2TH<br>\r\n☆ HDD 320 Gb<br>\r\n☆ Ram 4 Gb<br>\r\n☆ WIFI<br>\r\n☆ Layar 14\"<br>\r\n☆ Port USB<br>\r\n☆ Port Mic<br>\r\n☆ Port Headphone<br>\r\n☆ Camera<br>\r\n☆ VGA INTEL<br>',5),(13,1,'IPHONE XR',4299999,1000,'iphone xr.png','IPHONE XR ISTIMEWA',5),(14,1,'Redmi note 11 pro 5g',3900000,500,'Redmi n 11 pro.jpg','Kondisi: Baru <br>\r\nBerat Satuan: 500 g<br>\r\nKategori: Android OS<br>\r\nEtalase: Semua Etalase',5),(15,2,'Laptop Lenovo Ideapad',4199000,4000,'laptop lenovo.jpg','Kondisi: Baru<br>\r\nBerat Satuan: 4 kg',5),(16,1,'Samsung Galaxy A04s 4/64GB',1865000,425,'galaxy A04s.jpg','Kondisi: Baru<br>\r\nBerat Satuan: 425 g<br>\r\nKategori: Android OS<br>\r\nEtalase: SAMSUNG<br>',5),(17,1,'Samsung Galaxy A04s',1865000,450,'galaxy A04s.jpg','Kondisi: Baru',5),(18,1,'Samsung Galaxy A04s',1865000,450,'galaxy A04s.jpg','kondisi : Baru',5);
+/*!40000 ALTER TABLE `produk` ENABLE KEYS */;
+UNLOCK TABLES;
 
-  
-<script data-cfasync="false" type="text/javascript">
-// <![CDATA[
-var debugSQLInfo = 'null';
+--
+-- Table structure for table `produk_foto`
+--
 
-// ]]>
-</script>
+DROP TABLE IF EXISTS `produk_foto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `produk_foto` (
+  `id_produk_foto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_produk` int(11) NOT NULL,
+  `nama_produk_foto` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_produk_foto`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `produk_foto`
+--
 
-  
-  
-  </body>
-</html>
+LOCK TABLES `produk_foto` WRITE;
+/*!40000 ALTER TABLE `produk_foto` DISABLE KEYS */;
+INSERT INTO `produk_foto` VALUES (1,18,'galaxy A04s.jpg'),(2,18,'galaxy A04s2.jpg'),(4,18,'20221207141113galaxy A04s3.jpg');
+/*!40000 ALTER TABLE `produk_foto` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-12-22 14:13:53

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include 'koneksi.php'
+include 'admin/koneksi.php'
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +85,7 @@ include 'koneksi.php'
 								$koneksi->query("INSERT INTO pelanggan(email_pelanggan,password_pelanggan,nama_pelanggan,telepon_pelanggan,alamat_pelanggan) VALUES('$email','$password','$nama','$telepon','$alamat')");
 
 								echo "<script>alert('Pendaftaran sukses, silahkan login');
-									location='login.php'; </script>";
+								location='login.php'; </script>";
 							}
 						}
 						?>
@@ -95,7 +95,8 @@ include 'koneksi.php'
 		</div>
 	</div>
 
+	<?php include 'footer.php'; ?>
+
 </body>
 </html>
 
-<?php include 'footer.php'; ?>

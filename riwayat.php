@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'koneksi.php';
+include 'admin/koneksi.php';
 
 // jk tidak ada session pelanggan
 if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
@@ -55,86 +55,96 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 
 					$ambil = $koneksi->query("SELECT * FROM pembelian where id_pelanggan='$id_pelanggan'");
 					while($pecah = $ambil->fetch_assoc())
-					{ ?>
-						<tr>
-							<td><?php echo $nomor; ?></td>
-							<td><?php echo $pecah["tanggal_pembelian"] ?></td>
-							<td>
-								<?php echo $pecah["status_pembelian"] ?>
-								<br>
+						{ ?>
+							<tr>
+								<td><?php echo $nomor; ?></td>
+								<td><?php echo $pecah["tanggal_pembelian"] ?></td>
+								<td>
+									<?php echo $pecah["status_pembelian"] ?>
+									<br>
 
-								<?php if (!empty($pecah['resi_pengiriman'])): ?>
-									Resi : <?php echo $pecah['resi_pengiriman']; ?>
-								<?php endif ?>
+									<?php if (!empty($pecah['resi_pengiriman'])): ?>
+										Resi : <?php echo $pecah['resi_pengiriman']; ?>
+									<?php endif ?>
 
-							</td>
-							<td>Rp. <?php echo number_format($pecah["total_pembelian"]) ?></td>
-							<td>
+								</td>
+								<td>Rp. <?php echo number_format($pecah["total_pembelian"]) ?></td>
+								<td>
 
-								<?php if ($pecah["status_pembelian"] !== "Batal" ): ?>
-									
-								<a href="nota.php?id=<?php echo $pecah["id_pembelian"] ?>"
-									class="btn btn-info btn-sm"><i class="bi bi-ticket-detailed"></i> Detail</a>
-								<?php endif ?>
+									<?php if ($pecah["status_pembelian"] !== "Batal" ): ?>
+										
+										<a href="nota.php?id=<?php echo $pecah["id_pembelian"] ?>"
+											class="btn btn-info btn-sm"><i class="bi bi-ticket-detailed"></i> Detail</a>
+										<?php endif ?>
 
-								<?php if ($pecah['status_pembelian']=="Pending"): ?>
+										<?php if ($pecah['status_pembelian']=="Pending"): ?>
 
-									<a href="pembayaran.php?id=<?php echo $pecah["id_pembelian"]; ?>" 
-										class="btn btn-success btn-sm"><i class="bi bi-currency-exchange"></i> Input Pembayaran
-									</a>
+											<a href="pembayaran.php?id=<?php echo $pecah["id_pembelian"]; ?>" 
+												class="btn btn-success btn-sm"><i class="bi bi-currency-exchange"></i> Input Pembayaran
+											</a>
 
 									<!-- <a href="batalpesan.php?id=<?php echo $pecah["id_pembelian"]; ?>" 
 										class="btn btn-danger btn-sm">Batal Pesan
 									</a> -->
 									<button type="button" onclick="konfirmasiBatal('Anda yakin ingin membatalkan pesanan?', <?php echo $pecah["id_pembelian"]; ?>)" 
-									class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i> Batal Pesan</button>
+										class="btn btn-danger btn-sm"><i class="bi bi-x-circle"></i> Batal Pesan</button>
 										
-								<?php endif ?>
+									<?php endif ?>
 
-								<?php if ($pecah['status_pembelian']!=="Batal" && $pecah['status_pembelian']!=="Pending"): ?>
+									<?php if ($pecah['status_pembelian']!=="Batal" && $pecah['status_pembelian']!=="Pending"): ?>
 										<a href="lihat_pembayaran.php?id=<?php echo $pecah["id_pembelian"]; ?>" 
-										class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Lihat Pembayaran</a>
-								<?php endif ?>
+											class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Lihat Pembayaran</a>
+										<?php endif ?>
 
-								<?php if ($pecah['status_pembelian']=="Barang Dikirim"): ?>
-									<button type="button" onclick="konfirmasiPesanan('Anda yakin pesanan sudah diterima?', <?php echo $pecah["id_pembelian"]; ?>)" 
-									class="btn btn-success btn-sm"><i class="bi bi-check-circle"></i> selesai</button>
-								<?php endif ?>
+										<?php if ($pecah['status_pembelian']=="Barang Dikirim"): ?>
+											<button type="button" onclick="konfirmasiPesanan('Anda yakin pesanan sudah diterima?', <?php echo $pecah["id_pembelian"]; ?>)" 
+												class="btn btn-success btn-sm"><i class="bi bi-check-circle"></i> selesai</button>
+											<?php endif ?>
 
-							</td>
-						</tr>
+										</td>
+									</tr>
 
-							<?php $nomor++; ?>
-							<?php } ?>
+									<?php $nomor++; ?>
+								<?php } ?>
 
-				</tbody>
-			</table>
-		</div>
-	</section>
+							</tbody>
+						</table>
+						
+					</div>
+				</section>
 
-	<script>
-		const konfirmasiBatal = (pesan, id) => {
-			if (confirm(pesan)) {
-				location = 'batalpesan.php?id=' + id;
-			}else {
-				location ='riwayat.php';
-			}
-		}
-	</script>
+				<script>
+					const konfirmasiBatal = (pesan, id) => {
+						if (confirm(pesan)) {
+							location = 'batalpesan.php?id=' + id;
+						}else {
+							location ='riwayat.php';
+						}
+					}
+				</script>
 
-	<script>
-		const konfirmasiPesanan = (pesan, id) => {
-			if (confirm(pesan)) {
-				location = 'selesai_pesanan.php?id=' + id;
-			}else {
-				location ='riwayat.php';
-			}
-		}
-	</script>
+				<script>
+					const konfirmasiPesanan = (pesan, id) => {
+						if (confirm(pesan)) {
+							location = 'selesai_pesanan.php?id=' + id;
+						}else {
+							location ='riwayat.php';
+						}
+					}
+				</script>
 
-<?php include 'footer.php'; ?>
+				<script>
+					const konfirmasiHapus = (pesan, id) => {
+						if (confirm(pesan)) {
+							location = 'hapusriwayat.php?id=' + id;
+						}else {
+							location ='riwayat.php';
+						}
+					}
+				</script>
 
+				<?php include 'footer.php'; ?>
 
-</body>
-</html>
+			</body>
+			</html>
 

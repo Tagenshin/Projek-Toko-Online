@@ -91,7 +91,7 @@ if (isset($_POST['save']))
 
 	echo "<div class='alert alert-info' style='margin-top:10px;'>Data Tersimpan</div>";
 	echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=produk'>";
-
+	
 	// var_dump($_FILES["foto"]);
 }
 ?>
