@@ -1,29 +1,4 @@
 
-<link rel="stylesheet" href="assets2/css/bootstrap.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-
-  <style>
-    .footer {
-      position: relative;
-      height: 40px;
-      margin-top: 15%;
-      bottom: 0;
-      width: 100%;
-      background-color: #343a40;
-      color: #ced9db;
-      text-align: center;
-      font-size: 15px;
-    }
-    .footer p{
-      padding: 7px;
-    }
-  </style>
-
-<!-- TABLE STYLES-->
-<!-- <link href="admin/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" /> -->
-<!-- JQUERY SCRIPTS -->
-<!-- <script src="admin/assets/js/jquery-1.10.2.js"></script> -->
 
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
   <a class="navbar-brand disabled"><i class="bi bi-shop"></i> ShinToko</a>

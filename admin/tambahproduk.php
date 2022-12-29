@@ -109,7 +109,7 @@ if (isset($_POST['save']))
     let i = 1;
     $('#tambahfoto').click(function() {
 
-      if (i <= 3) {
+      if (i <= 2) {
         $('#foto').append(`
       <div class="form-inline">
       <div class="form-group">

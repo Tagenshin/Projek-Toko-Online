@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include 'admin/koneksi.php';
 
 if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
@@ -13,8 +12,8 @@ if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'asset.php'; ?>
 	<title>keranjang belanja</title>
-	
 </head>
 <body>
 	<!-- navbar -->

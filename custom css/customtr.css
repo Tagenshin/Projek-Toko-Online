@@ -1,0 +1,16 @@
+.sub-foto{
+  width: 130px;
+}
+.sub-foto:hover {
+  opacity: 0.7;
+}
+
+.clicked{
+  border: 1px solid blue;
+}
+
+.cdeskripsi1{
+  width: 200px;
+  height: 200px;
+  overflow: auto;
+}

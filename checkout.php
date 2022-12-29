@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include 'admin/koneksi.php';
 
@@ -12,13 +12,11 @@ if (!isset($_SESSION["pelanggan"]))
 }
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'asset.php'; ?>
 	<title>checkout</title>
-	<!-- <link rel="stylesheet" href="admin/assets/css/bootstrap.css"> -->
-	<script src="admin\assets\js\jquery.min.js"></script>
 </head>
 <body>
 
@@ -227,6 +225,8 @@ if (!isset($_SESSION["pelanggan"]))
 
 </body>
 </html>
+
+<script src="admin/assets/js/jquery.min.js"></script>
 
 <script>
 	$(document).ready(function(){

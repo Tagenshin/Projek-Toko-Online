@@ -6,6 +6,7 @@ include 'admin/koneksi.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'asset.php'; ?>
 	<title>Nota Pembelian</title>
 	<!-- <link rel="stylesheet" href="admin/assets/css/bootstrap.css"> -->
 	<style>

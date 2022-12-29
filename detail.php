@@ -15,6 +15,7 @@ $detail = $ambil->fetch_assoc();
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'asset.php'; ?>
 	<title>Detail produk</title>
 </head>
 <body>
@@ -23,12 +24,31 @@ $detail = $ambil->fetch_assoc();
 	<br>
 
 	<section class="kontent">
-		<div class="container">
+		<div class="container" style="margin-top: 1rem; margin-bottom: 8rem;">
 			<div class="row">
-				<div class="col-md-4">
-					<img src="foto_produk/<?php echo $detail["foto_produk"];?>" class="img-fluid">
+				<div class="col-md-5 mt-2">
+					<div class="card">
+						<img id="root-foto" src="foto_produk/<?php echo $detail["foto_produk"];?>" class="thumbnail rounded">
+					</div>
+					<div>
+						<?php
+						$ambil=$koneksi->query("SELECT * FROM produk_foto WHERE id_produk='$id_produk'");
+						?>
+
+						<div class="row mt-3">
+							<div class="col-md-4">
+								<img class="rounded sub-foto" src="foto_produk/<?php echo $detail["foto_produk"];?>" alt="Foto lainnya">
+							</div>
+							<?php while ($ambilfoto = $ambil->fetch_assoc()): ?>
+								<div class="col-md-4">
+										<img class="rounded sub-foto" src="foto_produk/<?php echo $ambilfoto["nama_produk_foto"] ?>" alt="Foto lainnya">
+								</div>
+							<?php endwhile ?>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-5">
+
+				<div class="col-md-5 mt-2">
 					<h2><?php echo $detail["nama_produk"]; ?></h2>
 
 					<h4>Rp. <?php echo number_format($detail["harga_produk"]); ?></h4>
@@ -49,8 +69,17 @@ $detail = $ambil->fetch_assoc();
 							</div>
 						</div>
 					</form>
-					<br>
-					<p><?php echo $detail["deskripsi_produk"] ?></p>
+
+					<div>
+						<p 
+						style="
+						width: 400px;
+						height: 230px;
+						overflow: auto;"
+						><?php echo $detail["deskripsi_produk"] ?></p>
+					</div>
+					
+
 					<?php
 				// jk ada tombol beli
 				// if (isset($_POST["beli"]))
@@ -98,11 +127,26 @@ $detail = $ambil->fetch_assoc();
 					}
 					?>
 
-					
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<script>
+		const subFoto = document.querySelectorAll('.sub-foto');
+		const rootFotoEl = document.querySelector('#root-foto');
+		subFoto.forEach((el) => {
+			el.addEventListener('click', (e) => {
+				const clickEl = document.querySelectorAll('.clicked');
+				clickEl.forEach((el) => {
+					el.classList.remove('clicked');
+				})
+				e.target.classList.add('clicked');
+				const lokasiFoto = e.target.getAttribute('src');
+				rootFotoEl.setAttribute('src', lokasiFoto);
+			})
+		})
+	</script>
 
 	<?php include 'footer.php'; ?>
 

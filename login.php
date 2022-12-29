@@ -12,8 +12,8 @@ if (isset($_SESSION["pelanggan"]))
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'asset.php'; ?>
 	<title>Login Pelanggan</title>
-	<link rel="stylesheet" href="assets2/css/bootstrap.css">
 </head>
 <body>
 	<!-- navbar -->
@@ -65,8 +65,7 @@ if (isset($_SESSION["pelanggan"]))
 									if (isset($_SESSION["keranjang"]) OR !empty($_SESSION["keranjang"]))
 									{
 		// echo "<script>location='checkout.php';</script>";
-										echo "<meta http-equiv='refresh' content='1;url=checkout.php'>";	
-										
+										echo "<meta http-equiv='refresh' content='1;url=checkout.php'>";
 									}
 									else
 									{	

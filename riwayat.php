@@ -21,8 +21,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
+	<?php include 'asset.php'; ?>
 	<title>Shintoko</title>
 
 </head>

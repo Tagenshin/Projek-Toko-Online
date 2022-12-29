@@ -30,8 +30,8 @@ if ($_SESSION["pelanggan"]['id_pelanggan']!==$detbay["id_pelanggan"])
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include 'asset.php'; ?>
 	<title>lihat pembayaran</title>
-	<link rel="stylesheet" href="assets2/css/bootstrap.css">
 </head>
 <body>
 	<!-- navbar -->

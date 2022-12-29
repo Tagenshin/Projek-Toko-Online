@@ -55,17 +55,29 @@ while ($tiap = $ambilfoto->fetch_assoc())
 
 <hr>
 
+<?php
+$jumlahfoto = count($fotoproduk);
+
+if ($jumlahfoto<2)
+{?>
 <form method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label>Tambah Foto</label>
-		<input type="file" name="foto_produk">
+		<input type="file" name="foto_produk" required>
 	</div>
 	<button class="btn btn-primary" name="simpan" value="simpan">Simpan</button>
 </form>
+<?php } ?>
 
 <?php
+
+
 if (isset($_POST["simpan"]))
 {
+	// if ($jumlahfoto>3)
+	// {
+	// 	echo "<script>alert('Jumlah sudah maksimal');"
+	// }
 	$lokasifoto = $_FILES["foto_produk"]["tmp_name"];
 	$namafoto = $_FILES["foto_produk"]["name"];
 
@@ -76,7 +88,7 @@ if (isset($_POST["simpan"]))
 
 	$koneksi->query("INSERT INTO produk_foto (id_produk,nama_produk_foto) VALUES ('$id_produk','$namafoto') ");
 
-	echo "<script>alert('Foto produk berhasil disimpan');</script>";
+	
 	echo "<script>location='index.php?halaman=detailproduk&id=$id_produk';</script>";
 }
 
