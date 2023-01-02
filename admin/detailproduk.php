@@ -58,7 +58,7 @@ while ($tiap = $ambilfoto->fetch_assoc())
 <?php
 $jumlahfoto = count($fotoproduk);
 
-if ($jumlahfoto<2)
+if ($jumlahfoto<3)
 {?>
 <form method="post" enctype="multipart/form-data">
 	<div class="form-group">

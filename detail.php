@@ -26,7 +26,7 @@ $detail = $ambil->fetch_assoc();
 	<section class="kontent">
 		<div class="container" style="margin-top: 1rem; margin-bottom: 8rem;">
 			<div class="row">
-				<div class="col-md-5 mt-2">
+				<div class="col-md-4 mt-2">
 					<div class="card">
 						<img id="root-foto" src="foto_produk/<?php echo $detail["foto_produk"];?>" class="thumbnail rounded">
 					</div>
@@ -36,13 +36,13 @@ $detail = $ambil->fetch_assoc();
 						?>
 
 						<div class="row mt-3">
-							<div class="col-md-4">
+							
 								<img class="rounded sub-foto" src="foto_produk/<?php echo $detail["foto_produk"];?>" alt="Foto lainnya">
-							</div>
+							
 							<?php while ($ambilfoto = $ambil->fetch_assoc()): ?>
-								<div class="col-md-4">
+								
 										<img class="rounded sub-foto" src="foto_produk/<?php echo $ambilfoto["nama_produk_foto"] ?>" alt="Foto lainnya">
-								</div>
+								
 							<?php endwhile ?>
 						</div>
 					</div>

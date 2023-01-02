@@ -109,7 +109,7 @@ if (isset($_POST['save']))
     let i = 1;
     $('#tambahfoto').click(function() {
 
-      if (i <= 2) {
+      if (i <= 3) {
         $('#foto').append(`
       <div class="form-inline">
       <div class="form-group">
@@ -133,9 +133,9 @@ if (isset($_POST['save']))
       if (target.is('button') || target.is('.glyphicon-trash')) {
         i -= 1;
         target.parents('.form-inline').remove();
-      }
+    }
 
-    })
-  })
+})
+})
 </script>
 
