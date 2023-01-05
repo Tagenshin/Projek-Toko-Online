@@ -20,4 +20,6 @@ if (file_exists($lokasiFileFoto))
 	  }
 
 	echo "<script>alert('Produk berhasil dihapus');location='index.php?halaman=produk';</script>";
+	exit();
 }
+echo "<script>location='index.php?halaman=produk';</script>";
