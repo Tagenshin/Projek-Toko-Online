@@ -26,9 +26,13 @@
           </ul>
 
           <form action="pencarian.php" method="get" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Cari Produk" aria-label="Cari" name="keyword">
+            <div class="input-group">
+            <input class="form-control" type="search" placeholder="Cari Produk" aria-label="Cari" name="keyword">
+            <div class="input-group-btn">
             <button class="btn btn-primary my-2 my-sm-0 mr-sm-2" type="submit">
-              <i class="bi bi-search"></i> Cari</button>
+              <i class="bi bi-search"></i></button>
+              </div>
+              </div>
             </form>
 
             <form class="form-inline my-2 my-lg-0">
